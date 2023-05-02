@@ -41,12 +41,6 @@ section{
     padding-top: 90px;
     color: #999;
 }
-.testmonialBox .quote{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    opacity: 0.2;
-}
 .testmonialBox .details{
     display: flex;
     align-items: center;
