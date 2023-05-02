@@ -12,22 +12,18 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #2196f3;
+    background: #74838f;
     overflow: hidden;
-}
-.swiper-container{
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    user-select: none;
 }
 .swiper-slide{
     background-position: center;
     background-size: cover;
-    width: 320px;
+    width: 38vh;
     background:#fff;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
     filter: blur(4px);
-    background: #d1ebff;
+    background: #d9e3eb;
     border-radius: 10px;
 }
 .swiper-slide-active{
@@ -37,23 +33,43 @@ section{
 .testmonialBox{
     position: relative;
     width: 100%;
-    padding: 20px;
-    color: #999;
+    padding: 2vh;
+    height: 70vh;
 }
-.testmonialBox .img{
+.content {
+    height: 100%;
     display: flex;
-    align-items: center;
-    margin: auto;
+    flex-direction: column;
+}
+.testmonialBox .slide-img {
+    width: 34vh;
+    height: 34vh;
+}
+.testmonialBox .slide-img img{
+    height: auto;
+    width: -webkit-fill-available;
 }
 .slide-title {
-    font-size: 20px;
+    font-size: 3vh;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 3vh;
 }
 .slide-audio-title {
-    font-size: 20px;
+    font-size: 3vh;
     text-align: center;
-    margin: 8px 0;
+    margin: 3vh 0;
+    font-weight: 700;
+}
+.slide-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4vh;
+    padding: 0.5rem;
+    margin-top: auto;
+}
+.slide-left-control, .slide-middle-control, .slide-right-control {
+    padding: 1vh;
+    cursor: pointer;
 }
 
 
