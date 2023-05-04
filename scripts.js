@@ -3,14 +3,18 @@
     (function initSlides() {
         const cards = getData();
         drawSwiperSlides(cards);
+        attachAudioSwiperSlideEvents(cards);
         initSwiper();
     })();
 
     function getData() {
         return [
-            { title: "A cat", picturePath: "cat.jpg", audioTitle: "may", audiopath: "cat.mp3"},
-            { title: "A dog", picturePath: "dog.jpg", audioTitle: "gav", audiopath: "dog.mp3"},
-            { title: "A bird", picturePath: "bird.jpg", audioTitle: "pii", audiopath: "bird.mp3"}
+            { title: "Cat", picturePath: "cat.jpg", audioTitle: "may", audiopath: "cat.mp3"},
+            { title: "Dog", picturePath: "dog.jpg", audioTitle: "gav", audiopath: "dog.mp3"},
+            { title: "Bird", picturePath: "bird.jpg", audioTitle: "pii", audiopath: "bird.mp3"},
+            { title: "Cat2", picturePath: "cat.jpg", audioTitle: "may", audiopath: "cat.mp3"},
+            { title: "Dog2", picturePath: "dog.jpg", audioTitle: "gav", audiopath: "dog.mp3"},
+            { title: "Bird2", picturePath: "bird.jpg", audioTitle: "pii", audiopath: "bird.mp3"},
         ]
     }
 
@@ -19,9 +23,16 @@
             return;
 
         const swiperWrapper = document.getElementById('swiper-wrapper-id');
-        for(var i = 0; i < cards.length; i++) {
+        for(let i = 0; i < cards.length; i++) {
             swiperWrapper.innerHTML += getSwiperSlideHTML(cards[i].title, cards[i].picturePath, cards[i].audioTitle, cards[i].audiopath);
+        }
+    }
 
+    function attachAudioSwiperSlideEvents(cards) {
+        if (!cards || cards.length === 0)
+            return;
+
+        for(let i = 0; i < cards.length; i++) {
             const playControl = document.getElementById(`play_${cards[i].title}_${cards[i].picturePath}`);
             playControl.addEventListener("click", onPlayClick);
             playControl.Card = cards[i];
@@ -30,11 +41,11 @@
 
     function getSwiperSlideHTML(title, picturePath, audioTitle, audiopath) {
         return `<div class="swiper-slide">
-                    <audio id="audio_${title}_${picturePath}">
-                        <source src="audio/${audiopath}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
                     <div class="testmonialBox">
+                        <audio id="audio_${title}_${picturePath}">
+                            <source src="audio/${audiopath}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                         <div class="content">
                             <div class="slide-title">${title}</div>
                             <div class="slide-img">
@@ -69,7 +80,6 @@
     function initSwiper() {
         new Swiper('.swiper-container', {
             effect: 'coverflow',
-            grabCursor: true,
             centeredSlides: true,
             slidesPerView: 'auto',
             coverflowEffect: {
@@ -82,23 +92,11 @@
             loop: true,
             keyboard: {
                 enabled: true,
+                onlyInViewport: false,
+            },
+            mousewheel: {
+                sensitivity: 1
             }
         });
-
-        // var swiper = new Swiper('.swiper-container', {
-        //     slidesPerView: 1,
-        //     spaceBetween: 30,
-        //     keyboard: {
-        //       enabled: true,
-        //     },
-        //     pagination: {
-        //       el: '.swiper-pagination',
-        //       clickable: true,
-        //     },
-        //     navigation: {
-        //       nextEl: '.swiper-button-next',
-        //       prevEl: '.swiper-button-prev',
-        //     },
-        //   });
     }
 })();

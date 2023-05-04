@@ -64,13 +64,13 @@ section{
     display: flex;
     justify-content: space-between;
     margin-top: 4vh;
-    padding: 0.5rem;
     margin-top: auto;
 }
 .slide-left-control, .slide-middle-control, .slide-right-control {
-    padding: 1vh;
+    padding: 2vh;
     cursor: pointer;
 }
+
 
 
 
